@@ -1,7 +1,7 @@
 const Joi = require('joi');
 const { password, objectId } = require('./custom.validation');
 
-const createVehicle = {
+const addVehicle = {
   body: Joi.object().keys({
     model: Joi.string().required(),
     productionYear: Joi.string().required(),
@@ -20,11 +20,11 @@ const createVehicle = {
 //   }),
 // };
 
-// const getUser = {
-//   params: Joi.object().keys({
-//     userId: Joi.string().custom(objectId),
-//   }),
-// };
+const getVehicles = {
+  params: Joi.object().keys({
+    vehicleId: Joi.string().custom(objectId),
+  }),
+};
 
 // const updateUser = {
 //   params: Joi.object().keys({
@@ -46,7 +46,8 @@ const createVehicle = {
 // };
 
 module.exports = {
-  createVehicle,
+  addVehicle,
+  getVehicles
   // getVehicle
   // createUser,
   // getUsers,
