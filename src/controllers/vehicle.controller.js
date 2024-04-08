@@ -3,7 +3,8 @@ const catchAsync = require('../utils/catchAsync');
 const { vehicleService } = require('../services');
 
 const addVehicle = catchAsync(async (req, res) => {
-  const vehicle = await vehicleService.createUser(req.body);
+  console.log('HERE')
+  const vehicle = await vehicleService.addVehicle(req.body);
   res.status(httpStatus.CREATED).send(vehicle);
 });
 
