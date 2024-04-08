@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - '12'
+services:
+  - mongodb
+cache: yarn
+branches:
+  only:
+    - master
+env:
+  global:
+    - PORT=3000
+    # - MONGODB_URL=mongodb://localhost:27017/node-boilerplate
+    - MONGODB_URL==mongodb+srv://hidayat:admin123@atlascluster.1isky2l.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster
+    - JWT_SECRET=thisisasamplesecret
+    - JWT_ACCESS_EXPIRATION_MINUTES=30
+    - JWT_REFRESH_EXPIRATION_DAYS=30
+script:
+  - yarn lint
+  - yarn test
+after_success: yarn coverage:coveralls
